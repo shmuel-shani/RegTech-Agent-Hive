@@ -18,7 +18,7 @@ class RegTechState(TypedDict):
 def legal_node(state: RegTechState):
     agent = LegalAnalystAgent()
     result = agent.analyze_document(state["raw_regulation_text"])
-    return {"extracted_requirements": result.model_dump_json()}
+    return {"extracted_requirements": result}
 
 def mapper_node(state: RegTechState):
     agent = SystemMapperAgent()
