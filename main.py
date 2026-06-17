@@ -48,11 +48,11 @@ graph_builder.add_node("mapper", mapper_node)
 graph_builder.add_node("red_team", red_team_node)
 graph_builder.add_node("developer", developer_node)
 
+# מסלול טורי לחלוטין - מונע התנגשויות זיכרון בשרת
 graph_builder.set_entry_point("legal")
 graph_builder.add_edge("legal", "mapper")
 graph_builder.add_edge("mapper", "red_team")
-graph_builder.add_edge("mapper", "developer")
-graph_builder.add_edge("red_team", END)
+graph_builder.add_edge("red_team", "developer") # שינוי קריטי: עוברים מסוכן 3 לסוכן 4!
 graph_builder.add_edge("developer", END)
 
 app = graph_builder.compile()
