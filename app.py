@@ -22,7 +22,9 @@ except:
     bank_code = "# Bank code not found. Please create target_system/dummy_bank.py"
 
 st.header("💻 Target System Code")
-sys_code = st.text_area("Source Code to Audit:", value=bank_code, height=200)
+sys_code = st.text_area("💻 Target System Code (Feel free to edit or paste your own code!): "
+"כאן ניתן לראות קוד של מערכת דמה של בנק וירטואלי (מערכת עם חורי אבטחה ובעיות ציות מכוונות)"
+"תרגישו חופשי להכניס קוד משלכם כדי שהמערכת תסרוק בה את הכשלים", value=bank_code, height=300)
 
 if st.button("🚀 Research & Audit", type="primary", use_container_width=True):
     if not search_query:
