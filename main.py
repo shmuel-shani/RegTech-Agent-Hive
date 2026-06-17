@@ -24,25 +24,28 @@ class State(TypedDict):
 def legal_node(state: State):
     legal_agent = LegalAnalystAgent()
     result = legal_agent.analyze_document(state["raw_regulation_text"])
-    # התיקון: מחזירים טקסט נקי
+    # כאן הסוכן כבר מחזיר טקסט נקי, אז לא צריך המרה
     return {"extracted_requirements": result}
 
 # צומת 2: סורק הקוד (משווה בין הקוד לרגולציה)
 def mapper_node(state: State):
     mapper_agent = SystemMapperAgent()
     result = mapper_agent.audit_code(state["bank_source_code"], state["extracted_requirements"])
-    return {"vulnerabilities_report": result}
+    # החזרנו את ההמרה ל-JSON
+    return {"vulnerabilities_report": result.model_dump_json()}
 
 # צומת 3: צוות תקיפה (בונה פיילודים על בסיס החולשות)
 def red_team_node(state: State):
     red_team = RedTeamAgent()
     result = red_team.generate_payloads(state["vulnerabilities_report"])
-    return {"attack_plan": result}
+    # החזרנו את ההמרה ל-JSON
+    return {"attack_plan": result.model_dump_json()}
 
 # צומת 4: מפתח אבטחת מידע (כותב תיקון לקוד במקביל)
 def developer_node(state: State):
     dev_agent = DeveloperAgent()
     fixed_python_code = dev_agent.fix_code(state["bank_source_code"], state["vulnerabilities_report"])
+    # כאן מוחזר קוד פייתון כטקסט, אז לא צריך המרה
     return {"fixed_code": fixed_python_code}
 
 # --- בניית הגרף (המוח של המערכת) ---
