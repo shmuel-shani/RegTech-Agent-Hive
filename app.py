@@ -4,7 +4,7 @@ from main import app as graph_app
 
 st.set_page_config(page_title="RegTech Hive", page_icon="🐝", layout="wide")
 
-st.title("🐝 The RegTech Agent Hive")
+st.title("🐝 The RegTech Agent Hive - v2.0")
 st.markdown("### 🌐 Dynamic Live-Research Compliance System")
 st.markdown("---")
 
