@@ -4,6 +4,21 @@ from main import app as graph_app
 
 st.set_page_config(page_title="RegTech Hive", page_icon="🐝", layout="wide")
 
+# --- Personal Branding & Contact Sidebar ---
+with st.sidebar:
+    st.image("logo.png", use_container_width=True)
+    
+    st.markdown("### 👨‍💻 Developed by")
+    st.markdown("**Shmuel Shani**")
+    
+    st.markdown("---")
+    st.markdown("### 📫 Contact Me")
+    st.markdown("📧 [shanshmuel@gmail.com](mailto:shanshmuel@gmail.com)")
+    st.markdown("🔗 [GitHub Profile](https://github.com/shmuel-shani/RegTech-Agent-Hive/tree/main)") 
+    
+    st.markdown("---")
+    st.info("RegTech Hive is an automated Multi-Agent compliance and security auditing system powered by LangGraph.")
+
 st.title("🐝 The RegTech Agent Hive - v2.0")
 st.markdown("### 🌐 Dynamic Live-Research Compliance System")
 st.markdown("---")
