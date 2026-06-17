@@ -1,8 +1,9 @@
 streamlit
+openai
+langchain
 langchain-openai
-langchain-core
+langchain-community
 langgraph
 pydantic
 python-dotenv
-langchain-community
 tavily-python
